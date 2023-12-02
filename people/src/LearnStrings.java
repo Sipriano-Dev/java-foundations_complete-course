@@ -3,21 +3,24 @@ import java.util.Arrays;
 public class LearnStrings {
     public static void main(String[] args) {
 
-//        String myText = "For score and seven years ago";
-//        System.out.println(myText.length());
-//        char[] charArray = myText.toCharArray();
-//        int index = 30;
-//        if (index < myText.length()) {
-//            System.out.println(charArray[index]);
+        String myText = "developer";
 
-        String text = "For";
-        String text2 = "score";
+        //CAPITALIZING THE FIRST LETTER
 
-        StringBuilder builder = new StringBuilder(text.length() + text2.length())
-                .append(text)
-                .append(text2);
-        System.out.println(builder.length());
+        //used for few strings
+        String myNewTextPlus = myText.substring(0, 1).toUpperCase() + myText.substring(1);
+        System.out.println(myNewTextPlus);
 
+        //similar to "+" in performance
+        String myNewTextConcat = myText.substring(0, 1).toUpperCase().concat(myText.substring(1));
+        System.out.println(myNewTextConcat);
+
+        //Efficient in memory
+        String myNewText = new StringBuilder(myText.length())
+                .append(myText.substring(0, 1).toUpperCase())
+                .append(myText.substring(1))
+                .toString();
+        System.out.println(myNewText);
 
 
     }
