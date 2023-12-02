@@ -3,11 +3,8 @@ public class LearnStrings {
     public static void main(String[] args) {
 
 
-        String text = " ";
-        //will return true
-        System.out.println(text.isBlank());
-        //will return false
-        System.out.println(text.isEmpty());
-
+        String text = "Here is my awesome firf text";
+        System.out.println(text.replace('e', 'a'));
+        System.out.println(text.replace("firf", "nice"));
     }
 }
