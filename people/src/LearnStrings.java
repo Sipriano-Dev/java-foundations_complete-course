@@ -3,15 +3,12 @@ import java.util.Arrays;
 public class LearnStrings {
     public static void main(String[] args) {
 
-        //LEARN startWith() AND endsWith() METHODS
+        String first = "apple";
+        StringBuffer second = new StringBuffer("apple");
 
-        String text = "   file001.txt";
-
-        //Return a boolean if ends with the given text
-        System.out.println(text.endsWith("txt"));
-
-        //Return a boolean if start with the given text
-        System.out.println(text.strip().startsWith("file"));
+        //It'll return a boolean saying if the two strings are equal in the text
+        System.out.println(first.contentEquals(second));
+        System.out.println(first.equals(second));
     }
 
 
