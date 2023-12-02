@@ -3,45 +3,28 @@ import java.util.Arrays;
 public class LearnStrings {
     public static void main(String[] args) {
 
-        //LEARN HOW TO USE indexOf()
+        //LEARN HOW TO SPLIT STRINGS
 
-//        String myText = "BCDEFGABCDEFGA";
-//        //Find the unicode representative ch for given code
-//        System.out.println(myText.indexOf(65));
-//        //If it not find any, it'll return a -1
-//        System.out.println(myText.indexOf(122));
-//        //Other variation of indexOf, it say where the last occurrence for a given data
-//        System.out.println(myText.lastIndexOf("A"));
-//        //Tell from where to start
-//        System.out.println(myText.indexOf("A", 2));
+        String text = """
+                Sipriano,Anderson,1/1/88,89 abc st.,apple,ca
+                Ferreira,Gabriell,2/3/95,90 cba st.,orange,sp
+                Lourenço,Felipe,3/3/05,91 abc st.,pineapple,sc
+                """;
+        //Create a string of array that will receive anoter array that the split metho will return
+        //based in a regex
+        String[] people = text.split("\n");
 
-        //CHALLENGER - Capture the specific snippet code
-        String phoneNumber = "(344) 555-7744";
+        //Tell how many people in the array
+        System.out.println(people.length);
 
-        String areaCode = parseAreaCode(phoneNumber);
-        String exchange = parseExchange(phoneNumber);
-        String lineNumber = parseLineNumber(phoneNumber);
+        //Call the first info people in the array
+        System.out.println(people[0]);
 
-        System.out.println(areaCode);
-        System.out.println(exchange);
-        System.out.println(lineNumber);
+        String[] person1 = people[2].split(",");
 
+        //Printing address
+        System.out.println(person1[3]);
     }
-
-    private static String parseAreaCode(String phoneNumber) {
-        return phoneNumber.substring(phoneNumber.indexOf("(")+1, phoneNumber.indexOf(')'));
-    }
-
-    private static String parseExchange(String phoneNumber) {
-        return phoneNumber.substring(phoneNumber.indexOf(" ")+1, phoneNumber.indexOf("-"));
-    }
-
-
-    private static String parseLineNumber(String phoneNumber) {
-        return phoneNumber.substring(phoneNumber.indexOf("-")+1);
-    }
-
-
 
 
 }
