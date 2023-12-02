@@ -3,34 +3,19 @@ import java.util.Arrays;
 public class LearnStrings {
     public static void main(String[] args) {
 
-        //Cutting whitespaces
-        String text = "   Anderson    ";
-        System.out.printf("'%s'", text.strip());
-        System.out.println();
-        System.out.printf("'%s'", text.stripLeading());
-        System.out.println();
-        System.out.printf("'%s'", text.stripTrailing());
+        String firstWord = "Apple";
+        String secondWord = "apple";
 
-        //Cutting whitespaces while indent the code, but ide already do it for us
-        String newText = """
-                <html>
-                    <div> Here is a div space </div>
-                </html>
-                """;
+        System.out.println(firstWord.compareTo(secondWord));
+        System.out.println(firstWord.compareToIgnoreCase(secondWord));
 
-        System.out.println();
-        System.out.println("--------------");
-
-        System.out.println(newText.stripIndent());
-
-        //Show what the method returns
-        System.out.printf("'%s'", stripText(text));
-
+        System.out.println(compareToIgnoreCase(firstWord, secondWord));
 
     }
 
-    //Creating our own strip method
-    public static String stripText(String text) {
-        return text.replace(" ", "");
+    //My own compareToIgnoreCase method heehe
+    public static int compareToIgnoreCase(String word1, String word2) {
+        return word1.toUpperCase().compareTo(word2.toUpperCase());
     }
+
 }
