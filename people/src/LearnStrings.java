@@ -1,16 +1,14 @@
+
 public class LearnStrings {
     public static void main(String[] args) {
 
-        //This will contain the same reference, because are literals
-        String fruit = "Banana";
-        String anotherFruit = "Banana";
 
-        //This will contain different references, because are different objects
-        String vegetable = new String("Broccoli");
-        String anotherVegetable = new String("Broccoli");
-
-        System.out.println(fruit == anotherFruit);
-        System.out.println(vegetable == anotherVegetable);
+        String name = "Anderson";
+        //put all in upper case
+        System.out.println(name.toUpperCase());
+        //put all in lower case
+        String otherName = "SIPRIANO";
+        System.out.println(otherName.toLowerCase());
 
     }
 }
