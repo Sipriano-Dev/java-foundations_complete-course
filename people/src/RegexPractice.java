@@ -5,7 +5,11 @@ public class RegexPractice {
 
     public static void main(String[] args) {
 
-        String regex = "((\\d{1,2})[-.,\\s]*)?((\\d{3})[-.,\\s]*)((\\d{3})[-.,\\s]*)(\\d{4})";
+        String regex = "(?:(?<countryCode>\\d{1,2})[-.,\\s]*)?" +
+                "(?:(?<areaCode>\\d{3})[-.,\\s]*)" +
+                "(?:(?<exchange>\\d{3})[-.,\\s]*)" +
+                "(?<lineNumber>\\d{4})";
+        
         String phoneNumber = "12.333.544.3455";
 
         System.out.println(phoneNumber.matches(regex));
@@ -19,10 +23,10 @@ public class RegexPractice {
         if (phoneMat.matches()) {
             // The .group(index) method captures the field between ()
             // Notice that the index here starts from 1
-            System.out.printf("Country code: %s\n",phoneMat.group(2));
-            System.out.printf("Area code: %s\n", phoneMat.group(4));
-            System.out.printf("Exchange: %s\n", phoneMat.group(6));
-            System.out.printf("Line number: %s\n", phoneMat.group(7));
+            System.out.printf("Country code: %s\n",phoneMat.group("countryCode"));
+            System.out.printf("Area code: %s\n", phoneMat.group("areaCode"));
+            System.out.printf("Exchange: %s\n", phoneMat.group("exchange"));
+            System.out.printf("Line number: %s\n", phoneMat.group("lineNumber"));
         }
 
     }
