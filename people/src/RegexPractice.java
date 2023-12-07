@@ -5,19 +5,25 @@ public class RegexPractice {
 
     public static void main(String[] args) {
 
-        String regex = "(?:(?<countryCode>\\d{1,2})[-.,\\s]*)?" +
-                "(?:(?<areaCode>\\d{3})[-.,\\s]*)" +
-                "(?:(?<exchange>\\d{3})[-.,\\s]*)" +
-                "(?<lineNumber>\\d{4})";
+        String regex = """
+                # This is my regex to parse parts of phone number
+                (?:(?<countryCode>\\d{1,2})[-.,\\s]*)? # Get's country code
+                (?:(?<areaCode>\\d{3})[-.,\\s]*) # Get's area code
+                (?:(?<exchange>\\d{3})[-.,\\s]*) # Get's exchange
+                (?<lineNumber>\\d{4}) # Get's line number
+                """;
         
         String phoneNumber = "12.333.544.3455";
 
         System.out.println(phoneNumber.matches(regex));
 
         // Putting a Regex expression into a patter object
-        Pattern phonePat = Pattern.compile(regex);
+        // This code says to regex engine to allow comments, but be careful
+        // because it's also ignore white spaces literal in regex, so you have to put \\s instead of literal in the regex
+        Pattern phonePat = Pattern.compile(regex, Pattern.COMMENTS);
         // Using a variable Patter, uses a method matcher to create a comparison and put inside a Matcher object
         Matcher phoneMat = phonePat.matcher(phoneNumber);
+
 
         // If these two matches, then do something
         if (phoneMat.matches()) {
