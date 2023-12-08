@@ -7,15 +7,13 @@ public class RegexPractice {
 
         String regex = """
                 # This is my regex to parse parts of phone number
-                (?:(?<countryCode>\\d{1,2})[-.,\\s]*)? # Get's country code
+                (?:\\(?(?<countryCode>\\d{1,2})\\)?[-.,\\s]*)? # Get's country code
                 (?:(?<areaCode>\\d{3})[-.,\\s]*) # Get's area code
                 (?:(?<exchange>\\d{3})[-.,\\s]*) # Get's exchange
                 (?<lineNumber>\\d{4}) # Get's line number
                 """;
         
-        String phoneNumber = "12.333.544.3455";
-
-        System.out.println(phoneNumber.matches(regex));
+        String phoneNumber = "(12) 333.544.3455";
 
         // Putting a Regex expression into a patter object
         // This code says to regex engine to allow comments, but be careful
