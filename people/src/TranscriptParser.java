@@ -18,10 +18,10 @@ public class TranscriptParser {
                 Grade:\\s+(?<grade>\\d{1,2}).* # Grab Grade
                 Birthdate:\\s+(?<birthMonth>\\d{1,2})[/.\\s-,](?<birthDay>\\d{1,2})[/.\\s-,](?<birthYear>\\d{2,4}).* # Grab Birthdate
                 Gender:\\s+(?<gender>\\w+)\\b.* # Grab Grade, prevente new genders
-                State\\sID:\\s+(?<stateId>\\d{10})\\b.* # Grab Grade, prevente new genders
+                State\\sID:\\s+(?<stateId>\\d{10})\\b.*? # Grab Grade, prevente new genders, ? to * not be greedy
                 Cumulative\\sGPA\\s\\(Weighted\\)\\s+(?<weighted>[\\d.]+)\\b.* # Grab the cumulative GPA Weighed
                 Cumulative\\sGPA\\s\\(Unweighted\\)\\s+(?<unweighted>[\\d.]+)\\b.* # Grab the cumulative GPA Unweighted
-                .* 
+                .*
                 """;
 
         // It says to regex enable "." to consider everything, because some elements like \n
