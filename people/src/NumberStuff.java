@@ -1,14 +1,16 @@
+import java.security.SecureRandom;
+import java.util.Random;
+
 public class NumberStuff {
 
     public static void main(String[] args) {
 
-        byte anotherByte = 0x1f; //0x says that it will be an hexadecimal number, in this case will be 31 because
-        //when is before another number represents 16 + f(15)
-        int anotherInt = 0b01 | 0b10 | 0b100; //0b says that it'll be a binary number, start from right to left
-        //The or | says if it has a 1 than the final result is gonna be 1
+        Random random = new Random(3436346); //seed if you want
+        System.out.println(random.nextInt(25)); //It better than Math.random()
 
-        System.out.println(anotherInt);
-        System.out.println(anotherByte);
+        SecureRandom secureRandom = new SecureRandom();
+        System.out.println(secureRandom.nextInt(25));
+        //Can put a seed too, it's like random but better in security
 
     }
 }
