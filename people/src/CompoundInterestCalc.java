@@ -29,7 +29,10 @@ public class CompoundInterestCalc {
         CompoundInterestCalc cic = new CompoundInterestCalc();
 
         BigDecimal result = cic.calculate("$10,000.00", "8%", 10, "$1,000.00");
-        System.out.println(df.format(result));
-        System.out.println(pf.format(.08));
+//        System.out.println(df.format(result));
+//        System.out.println(pf.format(.08));
+//        System.out.printf("R$%,.2f%n", result);
+        String myFormattedMoney = String.format("R$%,.2f%n", result);
+        System.out.println(myFormattedMoney);
     }
 }
