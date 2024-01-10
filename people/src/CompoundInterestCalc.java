@@ -1,16 +1,30 @@
 import java.math.BigDecimal;
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.util.Locale;
 
 public class CompoundInterestCalc {
 
-    public BigDecimal calculate(String principal, String rate, int years, String contribution) {
-        //Balance (y) = p(1 + r)^y + c[((1 + r)^y - 1) / r]
+    private static final NumberFormat moneyFormat = NumberFormat.getCurrencyInstance(Locale.US);
+    private static final NumberFormat percentageFormat = NumberFormat.getPercentInstance();
 
-        BigDecimal a = BigDecimal.ONE.add(new BigDecimal(rate)).pow(years); //(1 + r)^y
-        BigDecimal b = new BigDecimal(principal).multiply(a); //p(1 + r)^y
+    public BigDecimal calculate(String principal, String rate, int years, String contribution) throws ParseException {
+        //Balance (y) = p(1 + r)^y + c[((1 + r)^y - 1) / r]
+        String rateAsPercent = percentageFormat.parse(rate).toString();
+
+        BigDecimal a = BigDecimal.ONE.add(new BigDecimal(rateAsPercent)).pow(years); //(1 + r)^y
+        BigDecimal b = new BigDecimal(moneyFormat.parse(principal).toString()).multiply(a); //p(1 + r)^y
 
         BigDecimal c = a.subtract(BigDecimal.ONE); //((1 + r)^y - 1)
-        BigDecimal d = c.divide(new BigDecimal(rate)); //((1 + r)^y - 1) / r
-        BigDecimal e = new BigDecimal(contribution).multiply(d); //c[((1 + r)^y - 1) / r]
+        BigDecimal d = c.divide(new BigDecimal(rateAsPercent)); //((1 + r)^y - 1) / r
+        BigDecimal e = new BigDecimal(moneyFormat.parse(contribution).toString()).multiply(d); //c[((1 + r)^y - 1) / r]
         return b.add(e);
+    }
+
+    public static void main(String[] args) throws ParseException {
+        CompoundInterestCalc cic = new CompoundInterestCalc();
+
+        BigDecimal result = cic.calculate("$10,000.00", "8%", 10, "$1,000.00");
+        System.out.println(moneyFormat.format(result));
     }
 }
