@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.Locale;
@@ -7,6 +8,7 @@ public class CompoundInterestCalc {
 
     private static final NumberFormat moneyFormat = NumberFormat.getCurrencyInstance(Locale.US);
     private static final NumberFormat percentageFormat = NumberFormat.getPercentInstance();
+
 
     public BigDecimal calculate(String principal, String rate, int years, String contribution) throws ParseException {
         //Balance (y) = p(1 + r)^y + c[((1 + r)^y - 1) / r]
@@ -22,9 +24,12 @@ public class CompoundInterestCalc {
     }
 
     public static void main(String[] args) throws ParseException {
+        DecimalFormat df = new DecimalFormat("R$#,###.00");
+        DecimalFormat pf = new DecimalFormat("#%");
         CompoundInterestCalc cic = new CompoundInterestCalc();
 
         BigDecimal result = cic.calculate("$10,000.00", "8%", 10, "$1,000.00");
-        System.out.println(moneyFormat.format(result));
+        System.out.println(df.format(result));
+        System.out.println(pf.format(.08));
     }
 }
