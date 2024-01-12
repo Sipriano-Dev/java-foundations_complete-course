@@ -6,7 +6,7 @@
 - [x] Seção 2: Classes, Object & Methods
 - [x] Seção 3: Working with Text
 - [x] Seção 4: Regular Expressions
-- [ ] Seção 5: Numbers
+- [x] Seção 5: Numbers
 - [ ] Seção 6: Control Flow
 - [ ] Seção 7: Testing Code
 - [ ] Seção 8: More OOP
