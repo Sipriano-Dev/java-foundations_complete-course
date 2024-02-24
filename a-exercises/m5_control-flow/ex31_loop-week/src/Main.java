@@ -5,8 +5,8 @@ public class Main {
 
         String[] week = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
 
-        for (int i = 0; i <  week.length; i++) {
-            System.out.println(week[i]);
+        for (String day : week) {
+            System.out.println(day);
         }
 
     }
