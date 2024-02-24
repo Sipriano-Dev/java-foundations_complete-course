@@ -1,7 +1,10 @@
 public class ForLoopExample {
     public static void main(String[] args) {
-        for (int i=0; i<=10; i++) {
-            System.out.printf("The counter is %d%n", i);
+        String[] fruits = {"Apple", "Orange", "Pear", "Plum"};
+
+        //Enhanced loop
+        for (String fruit : fruits) {
+            System.out.println(fruit);
         }
     }
 }
