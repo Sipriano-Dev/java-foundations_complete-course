@@ -5,8 +5,13 @@ public class Main {
 
         String[] week = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
 
-        for (String day : week) {
-            System.out.println(day);
+        for (int i = 0; i < week.length; i++) {
+            if (i % 2 != 0) {
+                System.out.println(week[i].toUpperCase());
+            } else {
+                System.out.println(week[i]);
+            }
+
         }
 
     }
