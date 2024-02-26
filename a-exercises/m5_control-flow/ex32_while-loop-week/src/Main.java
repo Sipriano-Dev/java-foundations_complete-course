@@ -6,11 +6,9 @@ public class Main {
         String[] week = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
         int position = 0;
         while (position < 7) {
-            if (position %2 == 0) {
-                System.out.println(week[position]);
-            } else {
-                System.out.println(week[position].toUpperCase());
-            }
+
+            String output = position % 2 == 0 ? week[position] : week[position].toUpperCase();
+            System.out.println(output);
 
             position++;
         }
