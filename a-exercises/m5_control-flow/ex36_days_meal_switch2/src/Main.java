@@ -19,9 +19,14 @@ public class Main {
     }
 
     private static String cap(String s) {
-        String FirstLetter = s.substring(0, 1).toUpperCase();
-        String rest = s.substring(1);
-        return FirstLetter + rest;
+        String[] vet = s.split(" ");
+        String word = "";
+        for (String ns : vet) {
+            String firstLetter = ns.substring(0, 1).toUpperCase();
+            String rest = ns.substring(1);
+            word += firstLetter + rest + " ";
+        }
+        return word.stripTrailing();
     }
 
 }
