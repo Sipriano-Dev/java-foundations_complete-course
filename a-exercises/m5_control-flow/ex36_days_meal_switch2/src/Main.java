@@ -14,8 +14,14 @@ public class Main {
                 case "Friday" -> "hamburgers";
                 default -> "pizza";
             };
-            System.out.printf("We eat %s on %s%n", meal, day);
+            System.out.printf("We eat %s on %s%n", cap(meal), day);
         }
+    }
+
+    private static String cap(String s) {
+        String FirstLetter = s.substring(0, 1).toUpperCase();
+        String rest = s.substring(1);
+        return FirstLetter + rest;
     }
 
 }
