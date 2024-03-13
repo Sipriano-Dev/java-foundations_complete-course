@@ -7,7 +7,7 @@
 - [x] Seção 3: Working with Text
 - [x] Seção 4: Regular Expressions
 - [x] Seção 5: Numbers
-- [ ] Seção 6: Control Flow
+- [x] Seção 6: Control Flow
 - [ ] Seção 7: Testing Code
 - [ ] Seção 8: More OOP
 - [ ] Seção 9: Collections
